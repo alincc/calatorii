@@ -177,6 +177,80 @@
 
   footer{text-align:center;padding:48px 20px 70px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:50px}
   @media print{.arrow,.chip:hover{box-shadow:none}.day{break-inside:avoid}}
+
+  /* ===== Tabs ===== */
+  .tabs{position:sticky;top:0;z-index:30;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:10px 14px;background:rgba(250,246,240,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .tabs button{font:inherit;font-size:14px;font-weight:700;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:999px;padding:7px 15px;display:inline-flex;align-items:center;gap:6px;transition:background .15s,color .15s,border-color .15s}
+  .tabs button:hover{color:var(--ink)}
+  .tabs button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .tabs button .dot{width:9px;height:9px;border-radius:50%}
+  .hidden-tab{display:none!important}
+  @media print{.tabs{display:none}.hidden-tab{display:block!important}}
+
+  /* ===== Program vizual — izolat sub #progchart ===== */
+  #progchart{--visit:#3b7d9c;--free:#e7dcc9;--travel:#dd9b3c;--over:#d64533;max-width:880px;margin:18px auto 0;padding:0 20px}
+  #progchart details.pc{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+  #progchart summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:9px;padding:15px 18px;font-weight:800;font-size:16px}
+  #progchart summary::-webkit-details-marker{display:none}
+  #progchart summary .chev{margin-left:auto;transition:transform .2s;color:var(--muted);font-size:20px}
+  #progchart details.pc[open] summary .chev{transform:rotate(90deg)}
+  #progchart .pc-inner{padding:0 15px 16px}
+  #progchart .book{background:#fff5f4;border:1px solid #f2ccc6;border-left:4px solid var(--over);border-radius:14px;padding:13px 15px}
+  #progchart .book h2{font-size:15px;color:#b3341f;display:flex;align-items:center;gap:7px;margin-bottom:9px}
+  #progchart .book ul{list-style:none;display:grid;gap:6px;margin:0;padding:0}
+  #progchart .book li{font-size:13px;color:#4a443c;padding-left:18px;position:relative}
+  #progchart .book li::before{content:"›";position:absolute;left:4px;color:var(--over);font-weight:700}
+  #progchart .book li b{color:var(--ink)}
+  #progchart .book .when{color:#b3341f;font-weight:700}
+  #progchart .legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:16px 0 6px;padding:11px 14px;background:var(--paper);border:1px solid var(--line);border-radius:14px}
+  #progchart .legend .li{display:flex;align-items:center;gap:7px;font-size:13px;color:#4a443c;font-weight:600}
+  #progchart .legend .sw{width:16px;height:16px;border-radius:5px;flex:none}
+  #progchart .sw.visit{background:var(--visit)} #progchart .sw.free{background:var(--free);border:1px solid #d8cbb3} #progchart .sw.travel{background:var(--travel)} #progchart .sw.over{background:var(--over)}
+  #progchart .legnote{text-align:center;color:var(--muted);font-size:12.5px;margin:2px 0 22px}
+  #progchart .citygroup{margin-bottom:22px}
+  #progchart .cityhead{display:flex;align-items:center;gap:9px;font-size:18px;font-weight:800;margin:0 2px 10px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+  #progchart .cityhead .dot{width:11px;height:11px;border-radius:50%;flex:none}
+  #progchart .cityhead .jp{font-weight:600;font-size:14px;color:var(--muted)}
+  #progchart .pcday{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:13px 15px 11px;margin-bottom:11px}
+  #progchart .dhead{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:9px}
+  #progchart .dhead .date{font-weight:800;font-size:15px}
+  #progchart .dhead .dtitle{color:var(--muted);font-size:14px}
+  #progchart .dhead .est{font-size:11px;font-weight:700;color:#8a6a2b;background:#f6edd8;border:1px solid #e7d6ad;border-radius:999px;padding:2px 9px;margin-left:auto}
+  #progchart .flags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  #progchart .flag{font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 10px;line-height:1.3;display:inline-flex;gap:5px;align-items:center}
+  #progchart .flag.res{background:#fbe2de;color:#b3341f} #progchart .flag.over{background:#fce7cf;color:#9a5a12} #progchart .flag.warn{background:#f6edd0;color:#8a6a2b} #progchart .flag.info{background:#e2f0ec;color:#2b6a5c}
+  #progchart .track{position:relative;height:38px;background:#fbf7f0;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+  #progchart .seg{position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;overflow:hidden;white-space:nowrap;cursor:pointer;border-right:1px solid rgba(255,255,255,.35)}
+  #progchart .seg.visit{background:var(--visit);color:#fff}
+  #progchart .seg.free{background:var(--free);color:#8a7f68}
+  #progchart .seg.travel{background:var(--travel);color:#4a3410}
+  #progchart .seg.over{background:var(--over);color:#fff}
+  #progchart .seg .lab{padding:0 6px;text-overflow:ellipsis;overflow:hidden}
+  #progchart .ticks{position:relative;height:15px;margin-top:2px}
+  #progchart .tick{position:absolute;top:0;font-size:10px;color:var(--muted);transform:translateX(-50%)}
+  #progchart .tick::before{content:"";position:absolute;top:-3px;left:50%;width:1px;height:3px;background:var(--line)}
+  #progchart .pcdetail{margin-top:8px;min-height:18px;font-size:13px;color:#4a443c}
+  #progchart .pcdetail .pill{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:1px 8px;margin-right:6px;vertical-align:1px}
+  #progchart .pill.visit{background:#e4f0f5;color:#2b6a86} #progchart .pill.free{background:#f1e9d8;color:#8a7f68} #progchart .pill.travel{background:#f7ecd5;color:#8a6a2b} #progchart .pill.over{background:#fbe2de;color:#b3341f}
+
+  /* ===== Mobile: spatiu mai judicios + tabs pe un rand (dupa toate regulile de baza) ===== */
+  @media(max-width:560px){
+    header.hero{padding:30px 14px 10px}
+    .hero .kana{margin-bottom:9px}
+    .hero .dates{font-size:15.5px;margin-top:10px}
+    .wrap{padding:0 12px}
+    .leg{padding:18px 0 8px}
+    .day .body{padding:6px 12px 18px}
+    .pcard{padding:14px 14px}
+    .tabs{justify-content:space-between;flex-wrap:nowrap;gap:5px;padding:9px 10px}
+    .tabs button{flex:1 1 0;justify-content:center;padding:7px 4px;font-size:12.5px;gap:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    #progchart{padding:0 12px;margin-top:12px}
+    #progchart .pc-inner{padding:0 10px 14px}
+    #progchart .pcday{padding:11px 11px 10px}
+    #progchart summary{padding:13px 14px;font-size:15px}
+    #progchart .book{padding:12px 13px}
+    #progchart .legend{gap:10px;padding:10px 12px}
+  }
 </style>
 </head>
 <body>
@@ -186,16 +260,31 @@
   <div class="kana">日本 · Itinerariu de călătorie</div>
   <h1>Japonia la minut</h1>
   <div class="dates">12 – 22 Iulie 2026 · 6 persoane (3 adulți + 3 adolescenți)</div>
-  <nav class="legs">
-    <a class="chip" href="#tokyo"><span class="dot tk"></span>Tokyo · 12–16</a>
-    <a class="chip" href="#hakone"><span class="dot hk"></span>Hakone · 16–18</a>
-    <a class="chip" href="#kyoto"><span class="dot ky"></span>Kyoto · 18–22</a>
-    <a class="chip" href="#transport"><i data-lucide="route"></i>Transport</a>
-    <a class="chip" href="#rezervari"><i data-lucide="link"></i>Rezervări</a>
-    <a class="chip" href="#cuvinte"><i data-lucide="messages-square"></i>Cuvinte</a>
-    <a class="chip" href="#reguli"><i data-lucide="shield-check"></i>Reguli</a>
+  <nav class="tabs" id="tabs">
+    <button data-tab="program" type="button">Program</button>
+    <button data-tab="tokyo" type="button"><span class="dot tk"></span>Tokyo</button>
+    <button data-tab="hakone" type="button"><span class="dot hk"></span>Hakone</button>
+    <button data-tab="kyoto" type="button"><span class="dot ky"></span>Kyoto</button>
+    <button data-tab="info" type="button">Info</button>
   </nav>
 </header>
+
+<section id="progchart">
+  <details class="pc" open>
+    <summary>📊 Program vizual &amp; de rezervat <span class="chev">›</span></summary>
+    <div class="pc-inner">
+      <div class="book"><h2>⚡ De rezervat ACUM (plecare în ~7 zile)</h2><ul class="pc-booklist"></ul></div>
+      <div class="legend">
+        <div class="li"><span class="sw visit"></span>Obiectiv / unde ești</div>
+        <div class="li"><span class="sw free"></span>Timp liber</div>
+        <div class="li"><span class="sw travel"></span>Drum între obiective</div>
+        <div class="li"><span class="sw over"></span>Drumul nu încape</div>
+      </div>
+      <div class="legnote">Zilele Hakone/Kyoto au „ore orientative” (fără ore fixe în plan). Apasă un segment pentru detalii.</div>
+      <div class="pc-chart"></div>
+    </div>
+  </details>
+</section>
 
 <div class="wrap">
 
@@ -776,6 +865,139 @@
   function closeHist(){document.getElementById('hb').classList.remove('open');document.body.style.overflow='';}
   document.addEventListener('keydown', e => { if (e.key === 'Escape'){ document.getElementById('lb').classList.remove('open'); closeHist(); } });
   if ('serviceWorker' in navigator) { window.addEventListener('load', function(){ navigator.serviceWorker.register('sw.js'); }); }
+</script>
+<script>
+(function(){
+  var RED_THRESHOLD=10;
+  var BOOK=[
+    {w:'14 iul', t:'teamLab Planets', d:'bilete cronometrate, se epuizează — cumpără 6 acum'},
+    {w:'20 iul', t:'USJ: bilete datate + Express Pass', d:'Marine Day = super-aglomerat; fără vânzare la poartă; Super Nintendo World cere Timed Entry'},
+    {w:'16 iul', t:'Romancecar Shinjuku→Hakone', d:'toate locurile rezervate'},
+    {w:'18 & 22 iul', t:'Shinkansen (Odawara→Kyoto, Kyoto→Tokyo)', d:'6 locuri împreună; Odawara = Hikari, nu Nozomi'},
+    {w:'21 iul', t:'Seară gheișe (Gion)', d:'rezervare obligatorie, se umple'},
+    {w:'13 iul', t:'Ceai + Samurai Ninja + slot Skytree', d:'rezervare online (ceai+ninja = același operator)'},
+    {w:'Vin 10 iul 19:00', t:'Chiikawa Bakery (opțional)', d:'bilet L-tike; altfel walk-in după-amiaza'}
+  ];
+  var DATA=[
+   {city:'Tokyo',jp:'東京',accent:'var(--tokyo)',days:[
+     {date:'Dum 12 Iul',title:'Sosire & Shibuya',exact:true,
+      flags:[{t:'warn',l:'N’EX nu oprește în Yotsuya — schimb la Shinjuku'},{t:'warn',l:'Nintendo/Pokémon: bilet numerotat dimineața, se poate epuiza'}],
+      acts:[{s:'12:55',e:'13:30',l:'Aterizare + imigrări'},{s:'16:30',e:'17:00',l:'Check-in Yotsuya'},{s:'17:30',e:'19:30',l:'Shibuya PARCO 6F'},{s:'19:30',e:'20:30',l:'Cat Cafe MOCHA'},{s:'20:30',e:'21:30',l:'Shibuya Crossing & cină'}],
+      tr:[{m:110,mode:'N’EX + schimb Shinjuku'},{m:20,mode:'metrou'},{m:4,mode:'pe jos'},{m:4,mode:'pe jos'}]},
+     {date:'Lun 13 Iul',title:'Asakusa · Ninja · Skytree',exact:true,
+      flags:[{t:'res',l:'Ceai + Samurai Ninja + slot Skytree'}],
+      acts:[{s:'09:30',e:'11:00',l:'Sensō-ji'},{s:'11:30',e:'13:00',l:'Samurai Ninja'},{s:'13:00',e:'14:00',l:'Prânz Asakusa'},{s:'14:30',e:'15:30',l:'Ceremonia ceaiului'},{s:'16:30',e:'18:30',l:'Skytree + Sanrio'},{s:'19:00',e:'20:00',l:'Cină Solamachi'}],
+      tr:[{m:5,mode:'pe jos'},{m:5,mode:'pe jos'},{m:5,mode:'pe jos'},{m:12,mode:'Tobu 1 stație'},{m:5,mode:'pe jos'}]},
+     {date:'Mar 14 Iul',title:'Tsukiji · teamLab · Ginza',exact:true,
+      flags:[{t:'over',l:'Zi supraîncărcată — scoate Kabuki SAU Grădinile'},{t:'warn',l:'Grădinile Palatului închid 17:00 (ultima intrare 16:30)'},{t:'res',l:'teamLab: rezervare obligatorie'}],
+      acts:[{s:'09:00',e:'10:30',l:'Tsukiji (dimineață)'},{s:'11:30',e:'13:30',l:'teamLab Planets'},{s:'13:30',e:'14:30',l:'Prânz'},{s:'15:30',e:'16:30',l:'Kabuki-za (act unic)'},{s:'17:00',e:'17:45',l:'Nijubashi / Palat'},{s:'18:00',e:'19:30',l:'Seară Ginza'}],
+      tr:[{m:28,mode:'metrou'},{m:8,mode:'pe jos'},{m:15,mode:'metrou'},{m:15,mode:'metrou/jos'},{m:12,mode:'metrou'}]},
+     {date:'Mie 15 Iul',title:'Yanaka · Akihabara · Harajuku',exact:true,
+      flags:[{t:'res',l:'Chiikawa Bakery: bilet L-tike (10 iul) sau walk-in după-amiaza'}],
+      acts:[{s:'09:30',e:'11:30',l:'Yanaka Ginza'},{s:'12:00',e:'13:30',l:'Akihabara'},{s:'14:00',e:'15:30',l:'Templul Meiji'},{s:'15:30',e:'17:30',l:'Takeshita St.'},{s:'18:00',e:'20:00',l:'Cumpărături & cină'}],
+      tr:[{m:15,mode:'JR Yamanote'},{m:30,mode:'JR Yamanote'},{m:6,mode:'pe jos'},{m:10,mode:'pe jos'}]}
+   ]},
+   {city:'Hakone',jp:'箱根',accent:'var(--hakone)',days:[
+     {date:'Joi 16 Iul',title:'Spre Hakone & onsen',exact:false,
+      flags:[{t:'res',l:'Romancecar: toate locurile rezervate — rezervă 6'}],
+      acts:[{s:'10:00',e:'11:00',l:'Check-out → Shinjuku'},{s:'11:30',e:'13:00',l:'Romancecar → Yumoto'},{s:'15:00',e:'16:30',l:'Check-in & onsen'}],
+      tr:[{m:30,mode:'JR + Odakyu'},{m:120,mode:'pauză / prânz'}]},
+     {date:'Vin 17 Iul',title:'Circuitul clasic',exact:false,
+      flags:[{t:'warn',l:'Owakudani/ropeway: verifică vulcanic dimineața (hakonenavi.jp)'},{t:'info',l:'Tot circuitul e inclus în Hakone Free Pass'},{t:'warn',l:'Ultima croazieră din Togendai: 17:00'}],
+      acts:[{s:'09:00',e:'10:00',l:'Gora / Sōunzan'},{s:'10:30',e:'11:30',l:'Owakudani'},{s:'12:00',e:'13:30',l:'Croazieră Lac Ashi'},{s:'13:45',e:'15:00',l:'Hakone Jinja & Torii'},{s:'16:00',e:'17:00',l:'Yumoto onsen & stradă'}],
+      tr:[{m:20,mode:'ropeway'},{m:25,mode:'ropeway + vapor'},{m:10,mode:'pe jos'},{m:40,mode:'autobuz'}]},
+     {date:'Sâm 18 Iul',title:'Spre Kyoto',exact:false,
+      flags:[{t:'res',l:'Shinkansen Odawara→Kyoto: rezervă 6 (Hikari, nu Nozomi)'}],
+      acts:[{s:'09:00',e:'10:30',l:'Onsen & stradă Yumoto'},{s:'11:00',e:'11:15',l:'Yumoto → Odawara'},{s:'12:00',e:'14:15',l:'Shinkansen → Kyoto'}],
+      tr:[{m:15,mode:'Hakone Tozan'},{m:45,mode:'pauză gară'}]}
+   ]},
+   {city:'Kyoto',jp:'京都',accent:'var(--kyoto)',days:[
+     {date:'Dum 19 Iul',title:'Fushimi · Higashiyama · Gion',exact:false,
+      flags:[{t:'info',l:'Fushimi Inari înainte de 08:00 (24h, gratis, fără aglomerație)'},{t:'warn',l:'Nishiki duminica: unele tarabe închise'}],
+      acts:[{s:'07:00',e:'08:30',l:'Fushimi Inari'},{s:'10:00',e:'11:15',l:'Kiyomizu-dera'},{s:'11:45',e:'12:45',l:'Yasaka & Gion'},{s:'13:15',e:'14:15',l:'Nishiki / prânz'}],
+      tr:[{m:35,mode:'Keihan + jos'},{m:25,mode:'pe jos (Sannenzaka)'},{m:20,mode:'pe jos'}]},
+     {date:'Lun 20 Iul',title:'Universal Studios (Osaka)',exact:false,
+      flags:[{t:'over',l:'Marine Day (sărbătoare) — USJ super-aglomerat'},{t:'res',l:'Bilete datate online ACUM + Express Pass'},{t:'warn',l:'Kobe = ocol ~1h opus; ultim tren ~22:30'}],
+      acts:[{s:'07:00',e:'08:15',l:'Tren Kyoto → USJ'},{s:'08:30',e:'19:00',l:'Universal Studios Japan'},{s:'20:00',e:'22:00',l:'Cină Kobe'}],
+      tr:[{m:15,mode:'intrare parc'},{m:50,mode:'JR spre Kobe'}]},
+     {date:'Mar 21 Iul',title:'Arashiyama · Kinkaku-ji · gheișe',exact:false,
+      flags:[{t:'warn',l:'Arashiyama→Kinkaku-ji: fără tren direct — 2 taxiuri pt 6'},{t:'res',l:'Seară gheișe (Gion): rezervare obligatorie'}],
+      acts:[{s:'08:30',e:'10:30',l:'Arashiyama (bambus + Tenryū-ji)'},{s:'11:00',e:'12:00',l:'Prânz Togetsukyō'},{s:'12:45',e:'13:45',l:'Kinkaku-ji'},{s:'14:00',e:'14:45',l:'Ryōan-ji (opțional)'},{s:'18:00',e:'20:00',l:'Seară gheișe (Gion)'}],
+      tr:[{m:8,mode:'pe jos'},{m:25,mode:'2 taxiuri'},{m:12,mode:'autobuz'},{m:35,mode:'taxi + odihnă'}]},
+     {date:'Mie 22 Iul',title:'Nijō & plecare spre Tokyo',exact:false,
+      flags:[{t:'info',l:'Nijō deschis miercuri (marțea e închis — ați nimerit bine)'},{t:'res',l:'Shinkansen Kyoto→Tokyo: rezervă 6'}],
+      acts:[{s:'08:45',e:'10:15',l:'Castelul Nijō'},{s:'11:00',e:'12:00',l:'Check-out → Kyoto Sta.'},{s:'13:00',e:'15:15',l:'Shinkansen → Tokyo'}],
+      tr:[{m:15,mode:'metrou'},{m:45,mode:'pauză gară'}]}
+   ]}
+  ];
+  function mins(t){var p=t.split(':');return (+p[0])*60+(+p[1]);}
+  function fmt(m){return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');}
+  function dur(m){var h=Math.floor(m/60),mm=m%60;return (h?h+'h':'')+(mm?(h?' ':'')+mm+'m':(h?'':'0m'));}
+  function buildDay(d){
+    var start=mins(d.acts[0].s), end=mins(d.acts[d.acts.length-1].e), span=end-start, segs=[];
+    d.acts.forEach(function(a,i){
+      segs.push({type:'visit',from:mins(a.s),to:mins(a.e),label:a.l,detail:a.l});
+      if(i<d.acts.length-1){
+        var gs=mins(a.e), ge=mins(d.acts[i+1].s), G=ge-gs, tv=(d.tr[i]||{}).m||0, mode=(d.tr[i]||{}).mode||'';
+        if(G<=0 && tv<=0) return;
+        if(tv<=0){ if(G>0) segs.push({type:'free',from:gs,to:ge,label:'liber',detail:'Timp liber'}); }
+        else if(d.exact && tv > G + RED_THRESHOLD){ segs.push({type:'over',from:gs,to:ge,label:'drum '+tv+'′ ⚠',detail:'Drum ~'+tv+' min ('+mode+') — ai doar '+G+' min. Nu încape (+'+(tv-G)+' min).'}); }
+        else if(tv<=G){ segs.push({type:'travel',from:gs,to:gs+tv,label:tv+'′',detail:'Drum ~'+tv+' min ('+mode+')'}); if(G-tv>0) segs.push({type:'free',from:gs+tv,to:ge,label:'liber',detail:'Timp liber '+dur(G-tv)}); }
+        else { segs.push({type:'travel',from:gs,to:ge,label:tv+'′',detail:'Drum ~'+tv+' min ('+mode+') — pauză strânsă ('+G+' min)'}); }
+      }
+    });
+    return {start:start,end:end,span:span,segs:segs};
+  }
+  var bl=document.querySelector('#progchart .pc-booklist');
+  if(bl) bl.innerHTML=BOOK.map(function(b){return '<li><span class="when">'+b.w+':</span> <b>'+b.t+'</b> — '+b.d+'</li>';}).join('');
+  var root=document.querySelector('#progchart .pc-chart');
+  if(root) DATA.forEach(function(group){
+    var g=document.createElement('div'); g.className='citygroup';
+    g.innerHTML='<div class="cityhead"><span class="dot" style="background:'+group.accent+'"></span>'+group.city+' <span class="jp">'+group.jp+'</span></div>';
+    group.days.forEach(function(d){
+      var b=buildDay(d);
+      var day=document.createElement('div'); day.className='pcday';
+      var est = d.exact?'':'<span class="est">ore orientative</span>';
+      day.innerHTML='<div class="dhead"><span class="date">'+d.date+'</span><span class="dtitle">'+d.title+'</span>'+est+'</div>';
+      if(d.flags && d.flags.length){
+        var fl=document.createElement('div'); fl.className='flags';
+        fl.innerHTML=d.flags.map(function(f){var ic=f.t==='res'?'🔖':f.t==='over'?'⏰':f.t==='info'?'✓':'⚠';return '<span class="flag '+f.t+'">'+ic+' '+f.l+'</span>';}).join('');
+        day.appendChild(fl);
+      }
+      var track=document.createElement('div'); track.className='track';
+      var det=document.createElement('div'); det.className='pcdetail'; det.textContent='Apasă un segment pentru detalii ↑';
+      b.segs.forEach(function(s){
+        var el=document.createElement('div'); el.className='seg '+s.type;
+        el.style.left=((s.from-b.start)/b.span*100)+'%';
+        el.style.width=((s.to-s.from)/b.span*100)+'%';
+        el.innerHTML='<span class="lab">'+s.label+'</span>';
+        el.title=fmt(s.from)+'–'+fmt(s.to)+' · '+s.detail;
+        el.addEventListener('click',function(){ det.innerHTML='<span class="pill '+s.type+'">'+fmt(s.from)+'–'+fmt(s.to)+'</span>'+s.detail; });
+        track.appendChild(el);
+      });
+      day.appendChild(track);
+      var ticks=document.createElement('div'); ticks.className='ticks';
+      for(var h=Math.ceil(b.start/60);h<=Math.floor(b.end/60);h++){
+        var t=document.createElement('div'); t.className='tick';
+        t.style.left=((h*60-b.start)/b.span*100)+'%'; t.textContent=h; ticks.appendChild(t);
+      }
+      day.appendChild(ticks); day.appendChild(det);
+      g.appendChild(day);
+    });
+    root.appendChild(g);
+  });
+  var MAP={program:['progchart'],tokyo:['tokyo'],hakone:['hakone'],kyoto:['kyoto'],info:['transport','rezervari','cuvinte','reguli']};
+  var allIds=[]; for(var k in MAP){ allIds=allIds.concat(MAP[k]); }
+  var btns=[].slice.call(document.querySelectorAll('#tabs button'));
+  function show(tab){
+    allIds.forEach(function(id){var el=document.getElementById(id); if(el) el.classList.add('hidden-tab');});
+    (MAP[tab]||[]).forEach(function(id){var el=document.getElementById(id); if(el) el.classList.remove('hidden-tab');});
+    btns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-tab')===tab); });
+    window.scrollTo(0,0);
+  }
+  btns.forEach(function(b){ b.addEventListener('click',function(){ show(b.getAttribute('data-tab')); }); });
+  show('program');
+})();
 </script>
 </body>
 </html>
