@@ -1,8 +1,12 @@
-const CACHE = 'japonia-v1';
+const CACHE = 'japonia-v2';
 const ASSETS = ['.', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png'];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting()));
+  e.waitUntil(
+    caches.open(CACHE)
+      .then(c => Promise.all(ASSETS.map(a => c.add(new Request(a, { cache: 'reload' })))))
+      .then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener('activate', e => {
@@ -13,14 +17,17 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  if (e.request.method !== 'GET') return;
+  const req = e.request;
+  if (req.method !== 'GET') return;
+  const sameOrigin = new URL(req.url).origin === self.location.origin;
+  const netReq = sameOrigin ? new Request(req, { cache: 'reload' }) : req;
   e.respondWith(
-    fetch(e.request)
+    fetch(netReq)
       .then(res => {
         const copy = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, copy));
+        caches.open(CACHE).then(c => c.put(req, copy));
         return res;
       })
-      .catch(() => caches.match(e.request).then(r => r || caches.match('index.html')))
+      .catch(() => caches.match(req).then(r => r || caches.match('index.html')))
   );
 });
