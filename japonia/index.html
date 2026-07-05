@@ -176,11 +176,7 @@
   .phr .rom{color:var(--gold);font-weight:600;font-size:12.5px;font-style:italic;text-align:right;white-space:nowrap}
 
   footer{text-align:center;padding:48px 20px 70px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:50px}
-  .toolbar{position:sticky;top:0;z-index:20;background:rgba(250,246,240,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .toolbar .wrap{display:flex;gap:8px;justify-content:center;padding:10px 20px;flex-wrap:wrap}
-  .toolbar button{font:inherit;font-size:13px;font-weight:600;cursor:pointer;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
-  .toolbar button:hover{background:#fff}
-  @media print{.toolbar,.arrow,.chip:hover{box-shadow:none}.day{break-inside:avoid}}
+  @media print{.arrow,.chip:hover{box-shadow:none}.day{break-inside:avoid}}
 </style>
 </head>
 <body>
@@ -200,12 +196,6 @@
     <a class="chip" href="#reguli"><i data-lucide="shield-check"></i>Reguli</a>
   </nav>
 </header>
-
-<div class="toolbar"><div class="wrap">
-  <button onclick="document.querySelectorAll('details.day').forEach(d=>d.open=true)"><i data-lucide="chevrons-down"></i>Deschide tot</button>
-  <button onclick="document.querySelectorAll('details.day').forEach(d=>d.open=false)"><i data-lucide="chevrons-up"></i>Închide tot</button>
-  <button onclick="window.print()"><i data-lucide="printer"></i>Printează / PDF</button>
-</div></div>
 
 <div class="wrap">
 
