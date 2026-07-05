@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Călătorii</title>
+<meta name="theme-color" content="#d6455d">
+<style>
+  :root{--ink:#1c1a17;--muted:#6f675d;--line:#e6ddd0;--paper:#faf6f0;--card:#fffdfa;--tokyo:#d6455d;--gold:#b8893b;--shadow:0 1px 2px rgba(40,30,20,.05),0 8px 24px rgba(40,30,20,.06)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px}
+  header{text-align:center;padding:72px 20px 32px}
+  .kana{font-size:13px;letter-spacing:.5em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .sun{width:48px;height:48px;border-radius:50%;background:var(--tokyo);margin:0 auto 22px;box-shadow:0 0 0 10px rgba(214,69,93,.12)}
+  h1{font-size:clamp(30px,7vw,48px);font-weight:800;letter-spacing:-.02em}
+  .sub{margin-top:12px;color:var(--muted);font-size:16px}
+  .list{padding:12px 0 64px}
+  a.trip{display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:14px;box-shadow:var(--shadow);transition:transform .12s ease}
+  a.trip:hover{transform:translateY(-2px)}
+  .flag{width:44px;height:44px;border-radius:12px;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none}
+  .flag span{width:20px;height:20px;border-radius:50%;background:var(--tokyo)}
+  .trip .t{font-weight:700;font-size:18px}
+  .trip .d{color:var(--muted);font-size:14px;margin-top:2px}
+  .arrow{margin-left:auto;color:var(--gold);font-size:22px;line-height:1}
+  footer{text-align:center;color:var(--muted);font-size:13px;padding:0 20px 48px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="sun"></div>
+    <div class="kana">旅 · Călătorii</div>
+    <h1>Călătorii</h1>
+    <div class="sub">Planuri de vacanță — deschide, instalează, merge offline</div>
+  </header>
+  <div class="list">
+    <a class="trip" href="japonia/">
+      <div class="flag"><span></span></div>
+      <div>
+        <div class="t">Japonia</div>
+        <div class="d">12–22 Iulie · Tokyo · Hakone · Kyoto</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+  <footer>Deschide un plan → „Add to Home Screen" / „Install app" → funcționează offline în avion.</footer>
+</div>
+</body>
+</html>
